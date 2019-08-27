@@ -1,17 +1,9 @@
-'Imports System.Data.Sql
 Imports System.Data.SqlClient
 
 Public Class Doctor_Search
     Dim connection As New SqlConnection("Server= DESKTOP-STMQUHM; Database = HospitalDB;Trusted_Connection=True")
 
-    ' Dim selectedRowIndex As Integer
-
-    'Private myConn As SqlConnection
-    'Private myCmd As SqlCommand
-    'Private myReader As SqlDataReader
-    'Private results As String
-
-
+     
     Private Sub VBNET_SQL_Datagridview_Search_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
 
         FilterData("")
@@ -19,7 +11,6 @@ Public Class Doctor_Search
     End Sub
 
     Public Sub FilterData(ByVal valueToSearch As String)
-        'SELECT * From Users WHERE CONCAT(fname, lname, age) like '%F%'
         Dim searchQuery As String = "SELECT * From Doctor_details WHERE CONCAT(DoctorName, Off_Day) like '%" & valueToSearch & "%'"
 
         Dim command As New SqlCommand(searchQuery, connection)
@@ -43,79 +34,6 @@ Public Class Doctor_Search
         FilterData(TextBox1.Text)
 
     End Sub
-
-
-
-    ''Updating grid values
-
-    ''Dim table As New DataTable("Table")
-
-    '' selected datagridview row index
-
-
-    'Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
-
-    '    ' get the index of the selected row
-    '    selectedRowIndex = e.RowIndex
-
-    'End Sub
-
-    'Private Sub BtnUpdateRow_Click(ByVal sender As Object, ByVal e As EventArgs) Handles BtnUpdateRow.Click
-
-    '    Dim row As New DataGridViewRow()
-    '    row = DataGridView1.Rows(selectedRowIndex)
-
-    '    ' get data from inputbox
-    '    Dim id As String
-    '    id = InputBox("Enter The New Id", "New Data", row.Cells(0).Value.ToString())
-
-    '    Dim fn As String
-    '    fn = InputBox("Enter The New First Name", "New Data", row.Cells(1).Value.ToString())
-
-    '    Dim ln As String
-    '    ln = InputBox("Enter The New Last Name", "New Data", row.Cells(2).Value.ToString())
-
-    '    Dim age As String
-    '    age = InputBox("Enter The New age", "New Data", row.Cells(3).Value.ToString())
-
-    '    ' insert row inside the row
-    '    row.Cells(0).Value = Integer.Parse(id)
-    '    row.Cells(1).Value = fn
-    '    row.Cells(2).Value = ln
-    '    row.Cells(3).Value = Integer.Parse(age)
-
-    'End Sub
-
-
-
-
-
-    ' Pop up windows results
-
-    '    myCmd = myConn.CreateCommand
-    '    myCmd.CommandText = "SELECT * FROM Doctor_details where DoctorName ='" & TextBox1.Text & "'"
-    '    'MedicineName,ExpiryDate,Count,Prescription
-    '    Try
-    '        myConn.Open()
-
-    '        myReader = myCmd.ExecuteReader()
-    '        Do While myReader.Read()
-    '            results = results & myReader.GetString(0) & vbTab & _
-    '              myReader.GetString(1) & vbLf
-    '        Loop
-    '        ' Display results.
-    '        MsgBox(results)
-
-    '    Catch ex As Exception
-    '        MessageBox.Show(ex.Message)
-    '    End Try
-
-    'End Sub
-
-    'Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button2.Click
-    '    Me.Show()
-    '    Form1.Show()
-    'End Sub
 
 
 End Class
