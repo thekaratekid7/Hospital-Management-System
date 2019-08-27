@@ -1,16 +1,6 @@
-
-' Private Sub LogoPictureBox_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-'End Sub
 Public Class LoginForm1
 
-    ' TODO: Insert code to perform custom authentication using the provided username and password 
-    ' (See http://go.microsoft.com/fwlink/?LinkId=35339).  
-    ' The custom principal can then be attached to the current thread's principal as follows: 
-    '     My.User.CurrentPrincipal = CustomPrincipal
-    ' where CustomPrincipal is the IPrincipal implementation used to perform authentication. 
-    ' Subsequently, My.User will return identity information encapsulated in the CustomPrincipal object
-    ' such as the username, display name, etc.
+    
 
     Private Sub OK_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Login.Click
 
@@ -23,21 +13,17 @@ Public Class LoginForm1
 
         If TextBox1.Text = Username1 And TextBox2.Text = Password1 Then
             MsgBox("Login successful")
-            'LoginForm1.Hide()
-            ' Me.Hide()
             Form1.Show()
 
         ElseIf TextBox1.Text = Username2 And TextBox2.Text = Password2 Then
             MsgBox("Login successful")
-            'LoginForm1.Hide()
-            ' Me.Hide()
             Form2.Show()
 
 
         Else
             MsgBox("Login Unsuccessful. Please try again.")
         End If
-        'Me.Close()
+        
     End Sub
 
     Private Sub Cancel_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Cancel.Click
