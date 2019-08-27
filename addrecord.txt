@@ -29,28 +29,6 @@ Public Class AddRecord
         connection.Close()
 
 
-
-        ' End Using
-
-        '; Intergrated Security= true
-        'Dim insertQuery As String = 
-        'insertQuery="insert into Patient_details(PatName,HouseName,District,Disease)VALUES('" & TextBox1.Text& "','" & TextBox2.Text& "','" & TextBox3.Text& "',"& TextBox8.Text& ")",connection
-        'ExecuteQuery(insertQuery)
-        'MessageBox.Show("Data Inserted")
-
-
-        ' Dim con As New OleDb.OleDbConnection  
-        'Dim ds As New DataSet
-        'Dim da As OleDb.OleDbDataAdapter
-        'Dim sql As String
-        'con.ConnectionString = _
-        '    "Provider=Microsoft.ACE.OLEDB.12.0; Data Source=C:\Users\butterfly\Documents\HMS.accdb;Persist Security Info=False;"
-        'con.Open()
-        'MsgBox("A connection to the database is now open.")
-        'sql = "SELECT * FROM Patient_details"
-        'da = New OleDb.OleDbDataAdapter(sql, con)
-
-
     End Sub
 
 
@@ -108,53 +86,12 @@ Public Class AddRecord
         ListBox3.Items.Add("AB+")
         ListBox3.Items.Add("AB-")
 
-
-
-
-        'Dim command1 As New SqlCommand("select * from Gender_table")
-        'command1.Connection = connection
-
-        'Dim adapter1 As New SqlDataAdapter(command1)
-        'Dim table1 As New DataTable()
-
-        'adapter1.Fill(table1)
-
-
-        'ListBox2.DataSource = table1
-
-        'ListBox2.DisplayMember = "Gender"
-        'ListBox2.ValueMember = "Gender"
     End Sub
 
 
 
 
-    '  Public Sub ExecuteQuery(ByVal query As String)
-    'Dim command As New SqlCommand(query, connection)
-    '   connection.Open()
-    '
-    '   command.ExecuteNonQuery()
-
-    '  connection.Close()
-    'End Sub
-
-
-    'Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs)
-
-    'End Sub
-
-    'Private Sub Button3_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button3.Click
-    '    Form1.Show()
-    'End Sub
-
-    'Private Sub Button2_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
-    '    ListBox1.Items.Remove(ListBox1.SelectedItem)
-    'End Sub
-
-    'Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button4.Click
-    '    TextBox1.Clear()
-    '    TextBox2.Clear()
-    '    TextBox3.Clear()
+   
     '    TextBox4.Clear()
 
     'End Sub
