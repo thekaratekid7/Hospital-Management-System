@@ -1,0 +1,26 @@
+
+Public Class Form1
+
+
+    Private Sub Button4_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles SearchDoctor.Click
+        Doctor_Search.Show()
+    End Sub
+
+    Private Sub AR_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Add_Record.Click
+        AddRecord.Show()
+
+    End Sub
+
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Medicines.Click
+        Appointment.Show()
+    End Sub
+
+    Private Sub Button2_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Delete_Record.Click
+        ViewRecord.Show()
+    End Sub
+
+    Private Sub ModifyRecord_Click_1(ByVal sender As System.Object, ByVal e As System.EventArgs)
+
+    End Sub
+End Class

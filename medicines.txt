@@ -1,0 +1,86 @@
+
+Imports System.Data.SqlClient
+
+Public Class MedTest
+    Dim connection As New SqlConnection("Server= DESKTOP-STMQUHM; Database = HospitalDB;Trusted_Connection=True")
+    Dim selectedRowIndex As Integer
+
+    Private Sub VBNET_SQL_Datagridview_Search_Load(ByVal sender As Object, ByVal e As EventArgs) Handles MyBase.Load
+
+        FilterData("")
+
+    End Sub
+
+    Public Sub FilterData(ByVal valueToSearch As String)
+        'SELECT * From Users WHERE CONCAT(fname, lname, age) like '%F%'
+        Dim searchQuery As String = "SELECT * From Medicines WHERE CONCAT(MedicineName,ExpiryDate,Count,Prescription) like '%" & valueToSearch & "%'"
+
+        Dim command As New SqlCommand(searchQuery, connection)
+        Dim adapter As New SqlDataAdapter(command)
+        Dim table As New DataTable()
+
+        adapter.Fill(table)
+
+        DataGridView1.DataSource = table
+
+    End Sub
+
+    Private Sub TextBox1_TextChanged(ByVal sender As Object, ByVal e As EventArgs) Handles TextBox1.TextChanged
+
+        FilterData(TextBox1.Text)
+
+    End Sub
+
+    Private Sub Button1_Click(ByVal sender As System.Object, ByVal e As System.EventArgs) Handles Button1.Click
+
+        FilterData(TextBox1.Text)
+
+    End Sub
+
+
+    'Updating grid values
+
+    'Dim table As New DataTable("Table")
+
+    ' selected datagridview row index
+
+
+    Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
+
+        ' get the index of the selected row
+        selectedRowIndex = e.RowIndex
+
+    End Sub
+
+    Private Sub update_Click(ByVal sender As Object, ByVal e As EventArgs) Handles update.Click
+
+        Dim row As New DataGridViewRow()
+        row = DataGridView1.Rows(selectedRowIndex)
+        Try
+
+        
+            ' get data from inputbox
+            Dim medname As String
+            medname = InputBox("Enter The New Medicine Name", "New Data", row.Cells(0).Value.ToString())
+
+            Dim expdate As String
+            expdate = InputBox("Enter The New Expiry Date", "New Data", row.Cells(1).Value.ToString())
+
+            Dim c As String
+            c = InputBox("Enter The New Last Count", "New Data", row.Cells(2).Value.ToString())
+
+            Dim pre As String
+            pre = InputBox("Enter The New Prescription", "New Data", row.Cells(3).Value.ToString())
+
+            ' insert row inside the row
+            row.Cells(0).Value = medname
+            row.Cells(1).Value = expdate
+            row.Cells(2).Value = c
+            row.Cells(3).Value = pre
+
+        Catch ex As Exception
+
+        End Try
+    End Sub
+
+End Class
