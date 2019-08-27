@@ -12,7 +12,6 @@ Public Class MedTest
     End Sub
 
     Public Sub FilterData(ByVal valueToSearch As String)
-        'SELECT * From Users WHERE CONCAT(fname, lname, age) like '%F%'
         Dim searchQuery As String = "SELECT * From Medicines WHERE CONCAT(MedicineName,ExpiryDate,Count,Prescription) like '%" & valueToSearch & "%'"
 
         Dim command As New SqlCommand(searchQuery, connection)
@@ -37,12 +36,6 @@ Public Class MedTest
 
     End Sub
 
-
-    'Updating grid values
-
-    'Dim table As New DataTable("Table")
-
-    ' selected datagridview row index
 
 
     Private Sub DataGridView1_CellClick(ByVal sender As Object, ByVal e As DataGridViewCellEventArgs) Handles DataGridView1.CellClick
